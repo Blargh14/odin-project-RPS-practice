@@ -111,3 +111,6 @@ playGame
 # when making something that would be about 1000 lines of code, so I had a basic structure. But writing 1000 lines
 # of pseudocode and then 1000 lines of actual code is painful. Even if it's probably professional.
 # Anyhow rant over, into the repository of shame with it.
+
+# P.S.
+# Also I missed the part where you're supposed to say the end result.

@@ -34,6 +34,14 @@ function playGame() {
         playRound();
     }
 
+    if (humanScore > computerScore) {
+        return "YOU WIN";
+    } else if (computerScore > humanScore) {
+        return "YOU LOSE";
+    } else {
+        return "YOU TIE";
+    }
+
     function playRound() {
         let computerChoice = getComputerChoice();
         let humanChoice = getHumanChoice();
@@ -88,4 +96,5 @@ function playGame() {
     }
 }
 
-playGame();
+let result = playGame();
+console.log(result);
