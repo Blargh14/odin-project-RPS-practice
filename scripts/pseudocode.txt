@@ -1,0 +1,113 @@
+# I always hated pseudocode so I'll make a file in the repository to force me to make it and make it neat.
+# Made in the order asked.
+
+# Get computer choice
+
+FUNCTION getComputerChoice
+    INIT choice
+    COMPUTE random number 1-3
+    SET choice to random number
+    CASE choice
+        choice == 1
+            RETURN "rock"
+        choice == 2
+            RETURN "paper"
+        choice == 3
+            RETURN "scissors"
+    ENDCASE
+ENDFUNCTION
+
+# Get human choice
+
+FUNCTION getHumanChoice
+
+    PRINT "make your choice"
+    choice = INPUT string
+    choice = LOWERCASE string 
+
+    CASE choice
+        choice == "rock"
+            RETURN choice
+        choice == "paper"
+            RETURN choice
+        choice == "scissors"
+            RETURN choice
+        OTHERS
+            RETURN "rock" # The assignment did not ask to handle incorrect inputs so I put this here instead
+    ENDCASE
+ENDFUNCTION
+
+
+
+# Function logic
+
+FUNCTION playGame
+
+    INIT humanScore
+    SET humanScore = 0
+    INIT computerScore
+    SET computerScore = 0
+
+    FUNCTION playRound
+        INIT computerChoice
+        SET computerChoice = getComputerChoice
+
+        INIT humanChoice
+        SET humanChoice = getHumanChoice
+
+        CASE
+            humanChoice == "rock"
+                CASE
+                    computerChoice == "rock"
+                        RETURN "you tie"
+                    computerChoice == "paper"
+                        INCREMENT computerScore 1
+                        RETURN "you lose"
+                    computerChoice == "scissors"
+                        INCREMENT humanScore 1
+                        RETURN "you win"
+                ENDCASE
+            humanChoice == "paper"
+                CASE
+                    computerChoice == "rock"
+                        INCREMENT humanScore 1
+                        RETURN "you win"
+                    computerChoice == "paper"
+                        RETURN "you tie"
+                    computerChoice == "scissors"
+                        INCREMENT computerScore 1
+                        RETURN "you lose"
+                ENDCASE
+            humanChoice == "scissors"
+                CASE
+                    computerChoice == "rock"
+                        INCREMENT computerScore 1
+                        RETURN "you lose"
+                    computerChoice == "paper"
+                        INCREMENT humanScore 1
+                        RETURN "you win"
+                    computerChoice == "scissors"
+                        RETURN "you tie"
+                ENDCASE
+        ENDCASE
+    ENDFUNCTION
+
+    FOR 5 iterations
+        playRound
+
+    IF humanScore > computerScore THEN
+        PRINT "you win"
+    ELSE IF computerScore > humanScore THEN1
+        PRINT "you lose"
+    ELSE
+        PRINT "you tie"
+ENDFUNCTION
+
+playGame
+
+# Now that I've done it I remember why I hate it. Consistency without any audit or technically any rules.
+# I like using code as pseudocode in a way so I can watch it break every iteration. You can write a mountain of
+# garbage with intention. The closest I've come to using pseudocode was a basic flowchart with needs on it
+# when making something that would be about 1000 lines of code, so I had a basic structure. But writing 1000 lines
+# of pseudocode and then 1000 lines of actual code is painful. Even if it's probably professional.
+# Anyhow rant over, into the repository of shame with it.
