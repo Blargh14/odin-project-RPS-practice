@@ -30,5 +30,62 @@ function playGame() {
     let humanScore = 0;
     let computerScore = 0;
 
+    for (let i = 0; i < 5; i++) {
+        playRound();
+    }
 
+    function playRound() {
+        let computerChoice = getComputerChoice();
+        let humanChoice = getHumanChoice();
+
+        switch (humanChoice) {
+            case "rock":
+                switch (computerChoice) {
+                    case "rock":
+                        console.log("You tied with the computer with rock. Score: " + humanScore + ", " + computerScore);
+                        break;
+                    case "paper":
+                        computerScore++;
+                        console.log("You lost to the computer with rock. Score: " + humanScore + ", " + computerScore);
+                        break;
+                    case "scissors":
+                        humanScore++;
+                        console.log("You won against the computer with rock. Score: " + humanScore + ", " + computerScore);
+                        break;
+                }
+                break;
+            case "paper":
+                switch (computerChoice) {
+                    case "paper":
+                        console.log("You tied with the computer with paper. Score: " + humanScore + ", " + computerScore);
+                        break;
+                    case "scissors":
+                        computerScore++;
+                        console.log("You lost to the computer with paper. Score: " + humanScore + ", " + computerScore);
+                        break;
+                    case "rock":
+                        humanScore++;
+                        console.log("You won against the computer with paper. Score: " + humanScore + ", " + computerScore);
+                        break;
+                }
+                break;
+            case "scissors":
+                switch (computerChoice) {
+                    case "scissors":
+                        console.log("You tied with the computer with scissors. Score: " + humanScore + ", " + computerScore);
+                        break;
+                    case "rock":
+                        computerScore++;
+                        console.log("You lost to the computer with scissors. Score: " + humanScore + ", " + computerScore);
+                        break;
+                    case "paper":
+                        humanScore++;
+                        console.log("You won against the computer with scissors. Score: " + humanScore + ", " + computerScore);
+                        break;
+                }
+                break;
+        }
+    }
 }
+
+playGame();
