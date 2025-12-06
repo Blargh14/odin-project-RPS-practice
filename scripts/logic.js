@@ -24,6 +24,9 @@ function getHumanChoice(event) {
 let computerScore = 0;
 let humanScore = 0;
 
+let scores = document.querySelector("#scores");
+let result = document.querySelector("#result");
+
 function playRound(event) {
     let computerChoice = getComputerChoice();
     let humanChoice = getHumanChoice(event);
@@ -32,47 +35,57 @@ function playRound(event) {
         case "rock":
             switch (computerChoice) {
                 case "rock":
-                    console.log("You tied with the computer with rock. Score: " + humanScore + ", " + computerScore);
+                    result.textContent = "TIE";
                     break;
                 case "paper":
                     computerScore++;
-                    console.log("You lost to the computer with rock. Score: " + humanScore + ", " + computerScore);
+                    scores.textContent = score(humanScore, computerScore);
+                    result.textContent = "YOU LOSE"
                     break;
                 case "scissors":
                     humanScore++;
-                    console.log("You won against the computer with rock. Score: " + humanScore + ", " + computerScore);
+                    scores.textContent = score(humanScore, computerScore);
+                    result.textContent = "YOU WIN"
                     break;
             }
             break;
         case "paper":
             switch (computerChoice) {
                 case "paper":
-                    console.log("You tied with the computer with paper. Score: " + humanScore + ", " + computerScore);
+                    result.textContent = "TIE";
                     break;
                 case "scissors":
                     computerScore++;
-                    console.log("You lost to the computer with paper. Score: " + humanScore + ", " + computerScore);
+                    scores.textContent = score(humanScore, computerScore);
+                    result.textContent = "YOU LOSE"
                     break;
                 case "rock":
                     humanScore++;
-                    console.log("You won against the computer with paper. Score: " + humanScore + ", " + computerScore);
+                    scores.textContent = score(humanScore, computerScore);
+                    result.textContent = "YOU WIN"
                     break;
             }
             break;
         case "scissors":
             switch (computerChoice) {
                 case "scissors":
-                    console.log("You tied with the computer with scissors. Score: " + humanScore + ", " + computerScore);
+                    result.textContent = "TIE";
                     break;
                 case "rock":
                     computerScore++;
-                    console.log("You lost to the computer with scissors. Score: " + humanScore + ", " + computerScore);
+                    scores.textContent = score(humanScore, computerScore);
+                    result.textContent = "YOU LOSE"
                     break;
                 case "paper":
                     humanScore++;
-                    console.log("You won against the computer with scissors. Score: " + humanScore + ", " + computerScore);
+                    scores.textContent = score(humanScore, computerScore);
+                    result.textContent = "YOU WIN"
                     break;
             }
             break;
+    }
+
+    function score(player, computer) {
+        return `Player: ${player} CPU: ${computer}`;
     }
 }
