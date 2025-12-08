@@ -88,4 +88,13 @@ function playRound(event) {
     function score(player, computer) {
         return `Player: ${player} CPU: ${computer}`;
     }
+
+    if (humanScore === 5) {
+        buttons.forEach(element => element.removeEventListener("click", playRound));
+        alert("Human player wins!");
+    }
+    if (computerScore === 5) {
+        buttons.forEach(element => element.removeEventListener("click", playRound));
+        alert("Computer player wins!");
+    }
 }
